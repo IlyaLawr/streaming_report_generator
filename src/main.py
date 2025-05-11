@@ -21,12 +21,13 @@ from presentation.cli import SetupCliParser
 
 def report_factory(output_format: str, 
                    report_name: str,
-                   temp_storage: ITempStorage) -> IReportCreator:
+                   temp_storage: ITempStorage,
+                   file_report_name: str | None = None) -> IReportCreator:
 
     if report_name == 'payout':
         if output_format == 'json':
                 return PayoutReportCreator(temp_storage=temp_storage,
-                                           report_write=JSONWriter('payout.json'))
+                                           report_write=JSONWriter(f'{file_report_name}.json'))
         elif output_format == 'console':
             return PayoutReportCreator(temp_storage=temp_storage,
                                        report_write=ConsoleWriter(formatter=ConsolePayoutReportFormatter()))
@@ -54,7 +55,8 @@ async def main():
 
     report_creator = report_factory(output_format=args.output,
                                     report_name=args.report,
-                                    temp_storage=temp_storage)
+                                    temp_storage=temp_storage,
+                                    file_report_name=args.report_name)
 
     processing_report_request = ProcessingReportRequest(file_collector=file_collector,
                                                         data_aggregation=data_aggregation,
