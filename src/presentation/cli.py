@@ -1,4 +1,18 @@
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Action, Namespace
+
+
+class OutputAction(Action):
+    def __call__(self,
+                 parser: ArgumentParser,
+                 namespace: Namespace,
+                 value: str,
+                 option: str | None = None):
+
+        setattr(namespace, self.dest, value)
+
+        for action in parser._actions:
+            if action.dest == 'report_name':
+                action.required = (value == 'json')
 
 
 class SetupCliParser:
