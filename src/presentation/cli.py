@@ -33,8 +33,13 @@ class SetupCliParser:
         )
         self.parser.add_argument('--output', 
                             required=True, 
-                            choices=['console', 'json'], 
+                            choices=['console', 'json'],
+                            action=OutputAction,
                             help='report output format.'
+        )
+        self.parser.add_argument('--report-name',
+                            dest='report_name',
+                            help='report name if save to file mode is selected'
         )
 
         return self.parser.parse_args()
