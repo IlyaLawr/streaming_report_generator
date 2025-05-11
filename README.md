@@ -72,6 +72,7 @@ python3 main.py <CSV_ФАЙЛЫ...> --report payout --output <console|json>
 - `--report payout`: Тип отчёта (пока поддерживается только `payout`).
 - `--output console`: Вывод в консоль.
 - `--output json`: Сохранение отчёта в JSON-файл в директории `src`.
+- `--report-name`: Имя файла если выбран режим сохранения в файл.
 
 Пример, с учетом расположения тестовых файлов:
 
