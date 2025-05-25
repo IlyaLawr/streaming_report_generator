@@ -4,6 +4,10 @@
 На данный момент поддерживает вывод в консоль и сохранение в формате JSON.
 Может быть использована для файлов с большим объемом данных.
 
+# Ссылка на ТЗ
+
+https://docs.google.com/document/d/1Kyj6X7poy2e1lKUaZasNDIFnMYdAlyDdQ9FCBkBCe1s/edit?tab=t.0#heading=h.or54d8e34zbk
+
 ## Возможности
 
 - Чтение одного или нескольких CSV-файлов.
